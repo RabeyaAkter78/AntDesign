@@ -45,7 +45,7 @@ export default function SignUp() {
                 </div>
 
                 <div className="text-center btn bg-[#A3D3F9] p-2 rounded-2xl text-black font-bold text-2xl">
-                  Sign In
+                  Continue
                 </div>
                 <p className="text-end mt-4 ">
                   Already have account?
