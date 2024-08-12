@@ -9,18 +9,22 @@ import RentXForYou from "./_Components/RentXForYou/page";
 import TravelCOmponent from "./_Components/TravelComponent/page";
 import Shopping from "./_Components/Shopping/page";
 import Dining from "./_Components/Dining/page";
+import Login from "./_Components/Login/Login";
 export default function Home() {
   return (
     <main>
-      <SignUp></SignUp>
-      <ForgotPassword></ForgotPassword>
+      {/* <Login></Login> */}
+
+      <SignIn></SignIn>
+
+      {/* <SignUp></SignUp> */}
+      {/* <ForgotPassword></ForgotPassword>
       <Verification></Verification>
       <ConfirmPassword></ConfirmPassword>
-      <SignIn></SignIn>
       <RentXForYou></RentXForYou>
       <TravelCOmponent></TravelCOmponent>
       <Dining></Dining>
-      <Shopping></Shopping>
+      <Shopping></Shopping> */}
     </main>
   );
 }
