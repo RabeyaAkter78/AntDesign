@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Card, Space } from "antd";
+import { Button, Card, ConfigProvider } from "antd";
 import { IoMailOpenOutline } from "react-icons/io5";
 import { IoIosLock } from "react-icons/io";
 import Link from "next/link";
@@ -9,77 +9,75 @@ import { Checkbox } from "antd";
 import Image from "next/image";
 
 export default function SignIn() {
-  const CheckboxGroup = Checkbox.Group;
-  const plainOptions = ["Remember Me"];
-  const defaultCheckedList = ["Remember Me"];
-  const [checkedList, setCheckedList] = useState(defaultCheckedList);
-
-  const indeterminate =
-    checkedList.length > 0 && checkedList.length < plainOptions.length;
-  const onChange = (list) => {
-    setCheckedList(list);
-  };
-  const onCheckAllChange = (e) => {
-    setCheckedList(e.target.checked ? plainOptions : []);
-  };
   return (
     <div className="bg-black">
       <div className="container mx-auto pt-32 pb-16">
-        <h1 className="font-bold text-5xl text-[#97C6EA] text-center">
+        <h1 className="font-bold text-2xl md:text-3xl lg:text-5xl text-[#97C6EA] text-center">
           Sign in to your account
         </h1>
-        <div className="flex justify-center items-center mt-40">
-          <div className="mr-96">
-            <Space direction="vertical" size={16}>
-              <Card
-                style={{
-                  width: 500,
-                  height: 400,
-                  backgroundColor: "black",
-                  color: "white",
-                  borderRadius: "50px",
-                  paddingRight: "100px",
-                  paddingLeft: "20px",
-                  paddingTop: "20px",
-                }}
-              >
+        <ConfigProvider
+          theme={{
+            components: {
+              Checkbox: {
+                colorText: "rgb(255,255,255)",
+              },
+            },
+          }}
+        >
+          <div className="flex flex-col md:flex-row lg:flex-row justify-center items-stretch  mt-16 lg:mt-40 gap-5 p-2">
+            <div className="">
+              <div className="border-t border-b border-l rounded-3xl p-5 lg:w-96 h-full lg:pr-10">
                 <div className="flex justify-between items-center border-b-2 border-[#A3D3F9] mb-10">
-                  <p>Email</p>
-                  <IoMailOpenOutline />
+                  <input
+                    type="text"
+                    placeholder="Email"
+                    className="bg-transparent text-white p-2 focus:outline-none"
+                  />
+                  <IoMailOpenOutline className="text-white" />
                 </div>
                 <div className="flex justify-between items-center border-b-2 border-[#A3D3F9] mb-10">
-                  <p>Password</p>
-                  <IoIosLock />
+                  <input
+                    type="password"
+                    placeholder="Password"
+                    className="bg-transparent text-white p-2 focus:outline-none"
+                  />
+                  <IoIosLock className="text-white" />
                 </div>
                 <div className="flex justify-between items-center  mb-20">
-                  <CheckboxGroup
-                    options={plainOptions}
-                    value={checkedList}
-                    onChange={onChange}
-                    className="text-white"
-                  />
-                  <Link href="" className="text-[#A3D3F9] underline">
+                  <Checkbox className="text-white">Remember me</Checkbox>
+                  <Link
+                    href="/forfet-password"
+                    className="text-[#A3D3F9] underline"
+                  >
                     Forgot Password?{" "}
                   </Link>
                 </div>
-                <div className="text-center btn bg-[#A3D3F9] p-2 rounded-2xl text-black font-bold text-2xl">
+                <button
+                  onClick={() => {}}
+                  className="btn text-center w-full bg-[#A3D3F9] p-2 rounded-2xl text-black font-bold text-2xl"
+                >
                   Sign In
-                </div>
+                </button>
                 <p className="text-center my-4">
                   Don’t have an account ?
                   <span>
-                    <Link href="" className="text-[#A3D3F9] underline">
+                    <Link href="/signup" className="text-[#A3D3F9] underline">
                       Sign up
                     </Link>
                   </span>{" "}
                 </p>
-              </Card>
-            </Space>
+              </div>
+            </div>
+            <div className="lg:-ml-10 object-cover">
+              <Image
+                src="/logo (1).png"
+                alt="logo"
+                height={400}
+                width={400}
+              ></Image>
+            </div>
           </div>
-          <div className=" absolute ml-96">
-            <Image src="/logo (1).png" alt="" height={200} width={400}></Image>
-          </div>
-        </div>
+        </ConfigProvider>
       </div>
     </div>
   );
